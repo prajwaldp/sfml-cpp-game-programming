@@ -1,0 +1,6 @@
+[requires]
+sfml/2.5.1@bincrafters/stable
+spdlog/1.6.0
+
+[generators]
+cmake
