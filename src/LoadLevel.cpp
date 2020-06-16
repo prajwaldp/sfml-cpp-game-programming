@@ -1,0 +1,23 @@
+#include "Engine.h"
+
+void Engine::LoadLevel() {
+    m_IsPlaying = false;
+
+    // Delete previously allocated memory
+    for (int i = 0; i < m_LM.GetLevelSize().y; i++) {
+        delete[] m_ArrayLevel[i];
+    }
+    delete[] m_ArrayLevel;
+
+    // Load the next 2D array
+    m_ArrayLevel = m_LM.NextLevel(m_VALevel);
+
+    PopulateEmitters(m_FireEmitters, m_ArrayLevel);
+
+    m_TimeRemaining = m_LM.GetTimeLimit();
+
+    m_Thomas.Spawn(m_LM.GetStartPosition(), GRAVITY);
+    m_Bob.Spawn(m_LM.GetStartPosition(), GRAVITY);
+
+    m_NewLevelRequired = false;
+}

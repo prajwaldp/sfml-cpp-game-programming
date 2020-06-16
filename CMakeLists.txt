@@ -16,12 +16,12 @@ add_executable(GameEngine ${SOURCES})
 target_include_directories(GameEngine PUBLIC include)
 target_link_libraries(GameEngine ${CONAN_LIBS})
 target_compile_features(GameEngine PUBLIC cxx_std_11)
-target_precompile_headers(GameEngine
-PUBLIC
-<algorithm>
-<functional>
-<iostream>
-<memory>
-<sstream>
-<string>
-)
+target_precompile_headers( GameEngine PUBLIC
+                                      <algorithm>
+                                      <fstream>
+                                      <functional>
+                                      <iostream>
+                                      <map>
+                                      <memory>
+                                      <sstream>
+                                      <string> )
